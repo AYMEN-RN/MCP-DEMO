@@ -6,4 +6,3 @@ wheels/
 *.egg-info
 .venv
 .env
-node_modules/

@@ -1,12 +1,19 @@
 from mcp.server.fastmcp import FastMCP
 from langchain_tavily import TavilySearch
 from dotenv import load_dotenv
+import os
 
 load_dotenv(override=True)
 
 web_search_client = TavilySearch()
 
-mcp = FastMCP(name="mcp-serveur", host="0.0.0.0", port=24000)
+
+mcp = FastMCP(
+    name="mcp-serveur",
+    host="0.0.0.0",
+    port=24000,
+    #port=int(os.getenv("PORT", 24000)),
+)
 
 @mcp.tool()
 def get_employee_infos(name : str):
